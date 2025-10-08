@@ -1,16 +1,50 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meditation App</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+  <div id="app">
+    <!-- VIDEO BACKDROP -->
+    <div class="vid-container">
+      <video class="bg-video" autoplay loop muted playsinline>
+        <source src="Sounds/rain.mp4" type="video/mp4" />
+      </video>
+    </div>
 
+    <!-- LEFT: TIME PRESETS -->
+    <div id="time-select">
+      <button id="smaller-mins" data-time="120000">2 Minutes</button>
+      <button id="medium-mins"  data-time="300000">5 Minutes</button>
+      <button id="long-mins"    data-time="600000">10 Minutes</button>
+    </div>
+
+    <!-- RIGHT: SOUND PICKER -->
+    <div class="sound-picker">
+      <button class="sound-btn rain"  data-sound="Sounds/rain.mp3"  data-video="Sounds/rain.mp4"  aria-label="Rain"></button>
+      <button class="sound-btn beach" data-sound="Sounds/beach.mp3" data-video="Sounds/beach.mp4" aria-label="Beach"></button>
+    </div>
+
+    <!-- CENTER: PLAYER -->
+    <div class="player-container">
+      <audio class="song" src="Sounds/rain.mp3"></audio>
+
+      <button class="play" aria-label="Play/Pause"></button>
+
+      <!-- simple circular outline progress ring -->
+      <svg class="track" width="320" height="320" viewBox="0 0 100 100">
+        <circle class="outline" cx="50" cy="50" r="45"></circle>
+        <circle class="progress" cx="50" cy="50" r="45"></circle>
+        <!-- center glyph drawn with CSS on .play -->
+      </svg>
+
+      <div class="time-display">10:0</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
-
 </html>
